@@ -39,5 +39,54 @@ function serve(chai: kulhadChai | CuttingChai) {
         return chai.serve()
     }
 }
-let chai;
-serve(chai=new kulhadChai)
+
+type ChaiOrder = {
+    type:string,
+    sugar: number
+}
+
+function isChaiOrder(obj:any):obj is ChaiOrder{
+    return (
+        typeof obj === 'object' && 
+        obj != null && typeof obj.type === 'string' 
+        && typeof obj.sugar === 'number'
+    )
+}
+
+function serverOreder(item:ChaiOrder|string){
+    if (isChaiOrder(item)){
+        return `Serving ${item.sugar} chai with ${item.sugar} sugar`
+    }
+    return `Serving custom chai:${item}`
+}
+
+type MasalaChai = {type:"masala"; spicelevel:number};
+type GingerChai = {type:"ginger"; amount:number};
+type ElaichiChai = {type:"elaichi"; amount:number};
+
+type chai = MasalaChai | GingerChai | ElaichiChai
+
+function MakeChai(order:chai){
+    switch (order.type) {
+        case 'masala':
+            return `Masala Chai`
+            break;
+        case 'elaichi' :
+            return `Elachi Chai`
+            break
+        case 'ginger' :
+            return `Ginger Chai`
+        default:
+            break;
+    }
+}
+
+function brew(order: MasalaChai | GingerChai) {
+    if ("amount" in order){
+        //
+    }
+}
+
+function isStringArray(arr:unknown):arr is string[]{
+    //
+}
