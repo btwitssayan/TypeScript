@@ -1,3 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+let drink = "chai";
+let rand = Math.random() > 0.5 ? 10 : 5;
+export {};
 //# sourceMappingURL=typesinTS.js.map

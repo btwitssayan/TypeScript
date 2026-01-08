@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 function getChai(chai) {
     if (typeof chai === 'string') {
         return `Your chai: ${chai}`;
@@ -36,6 +34,38 @@ function serve(chai) {
         return chai.serve();
     }
 }
-let chai;
-serve(chai = new kulhadChai);
+function isChaiOrder(obj) {
+    return (typeof obj === 'object' &&
+        obj != null && typeof obj.type === 'string'
+        && typeof obj.sugar === 'number');
+}
+function serverOreder(item) {
+    if (isChaiOrder(item)) {
+        return `Serving ${item.sugar} chai with ${item.sugar} sugar`;
+    }
+    return `Serving custom chai:${item}`;
+}
+function MakeChai(order) {
+    switch (order.type) {
+        case 'masala':
+            return `Masala Chai`;
+            break;
+        case 'elaichi':
+            return `Elachi Chai`;
+            break;
+        case 'ginger':
+            return `Ginger Chai`;
+        default:
+            break;
+    }
+}
+function brew(order) {
+    if ("amount" in order) {
+        //
+    }
+}
+function isStringArray(arr) {
+    //
+}
+export {};
 //# sourceMappingURL=typeNarrowing.js.map
