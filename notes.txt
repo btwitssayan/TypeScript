@@ -1,0 +1,12 @@
+# Installing TypeScript Type Definitions
+
+If a package doesn't have built-in TypeScript declarations, install the types package:
+
+npm i -D @types/package-name
+
+Examples:
+- npm i -D @types/node
+- npm i -D @types/react
+- npm i -D @types/jest
+
+The -D flag installs it as a dev dependency since types are only needed during development.
